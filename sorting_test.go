@@ -42,17 +42,20 @@ func TestAllSortingImplementations(t *testing.T) {
 		fn    func([]int)
 	}{
 		{"Sort_V1", Sort},
-		{"Sort_V2", Sort2},
-		{"Sort_V3", Sort3},
+		// {"Sort_V2", Sort2},
+		// {"Sort_V3", Sort3},
+		{"Sort_V4", Sort4},
+		{"Sort_V5", Sort5},
 	}
 
 	// Loop through each function variation, then run every test case scenario against it
 	for _, target := range funcsToTest {
 		t.Run(target.label, func(t *testing.T) {
+			fmt.Println(target.label)
 			for _, tc := range tests {
 				t.Run(tc.name, func(t *testing.T) {
 					// Duplicate input slice to avoid side-effect mutations across assertions
-					fmt.Println(tc.name)
+
 					fmt.Println("Input:", tc.input)
 					testInput := make([]int, len(tc.input))
 
@@ -68,6 +71,7 @@ func TestAllSortingImplementations(t *testing.T) {
 					}
 				})
 			}
+			fmt.Println("================================")
 			// )
 		})
 	}
