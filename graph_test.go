@@ -21,6 +21,7 @@ func TestGraphDFS(t *testing.T) {
 	// g.DFSV2(0)
 	// g.DFSV3(0)
 
-	g.DFSV4(0)
+	// g.DFSV4(0)
 	g.DFSV5(0)
+	g.DFSV6(0)
 }

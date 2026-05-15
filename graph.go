@@ -130,3 +130,24 @@ func (g *Graph) recursiveDFSV5(node int, visited []bool) {
 		g.recursiveDFSV5(i, visited)
 	}
 }
+
+func (g *Graph) DFSV6(startNode int) {
+	fmt.Println("V6")
+	visited := make([]bool, g.vertices)
+	g.recursiveDFSV6(startNode, visited)
+	fmt.Println()
+	fmt.Println("#################")
+}
+
+func (g *Graph) recursiveDFSV6(node int, visited []bool) {
+	if !visited[node] {
+		fmt.Printf("[%d]", node)
+		visited[node] = true
+	} else {
+		return
+	}
+	list := g.adjList[node]
+	for _, i := range list {
+		g.recursiveDFSV6(i, visited)
+	}
+}
