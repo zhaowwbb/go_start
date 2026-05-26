@@ -8,6 +8,11 @@ type Graph struct {
 	adjList  map[int][]int
 }
 
+type Graph2 struct {
+	vertices int
+	adjList  map[int][]int
+}
+
 // NewGraph initializes a new Graph with a fixed number of vertices.
 // Acts as the constructor equivalent to public Graph(int vertices).
 func NewGraph(vertices int) *Graph {
@@ -21,8 +26,23 @@ func NewGraph(vertices int) *Graph {
 	return g
 }
 
+func NewGraph2(vertices int) *Graph2 {
+	g := &Graph2{
+		vertices: vertices,
+		adjList:  make(map[int][]int),
+	}
+	for i := 0; i < vertices; i++ {
+		g.adjList[i] = make([]int, 0)
+	}
+	return g
+}
+
 // AddEdge adds a directed edge from source to destination.
 func (g *Graph) AddEdge(source, destination int) {
+	g.adjList[source] = append(g.adjList[source], destination)
+}
+
+func (g *Graph2) AddEdge2(source, destination int) {
 	g.adjList[source] = append(g.adjList[source], destination)
 }
 
