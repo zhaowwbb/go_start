@@ -6,7 +6,8 @@ import (
 )
 
 func TestChristmasLights(t *testing.T) {
-	cl := NewChristmasLights(8)
+	// cl := NewChristmasLights(8)
+	cl := CreateCLV2(8)
 
 	expectedSteps := [][]bool{
 		{true, true, false, false, false, false, false, true}, // Step 1: pos moves to 1
